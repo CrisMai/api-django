@@ -20,3 +20,15 @@ class Conta(Base):
 
     def __str__(self) -> str:
         return "{} - R${} - {}".format(self.nome, self.valor, self.descricao)    
+
+class Extrato(Base):
+    conta = models.CharField("conta", max_length=225, null=False, blank=False)
+    valor = models.FloatField("Valor")
+    descricao = models.TextField("Descrição", null=False, blank=True)
+    tipo_transacao = models.TextField("Tipo transação", null=False, blank=True)
+
+    class Meta:
+        verbose_name = 'Extrato'
+
+    def __str__(self) -> str:
+        return "{} - R${} - {}".format(self.nome, self.valor, self.descricao)    
